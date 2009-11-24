@@ -1,0 +1,41 @@
+!!!
+%html
+  %head
+    %meta(charset="utf-8")
+    %title= controller.controller_name + ': ' + controller.action_name
+    %script(src="http://www.google.com/jsapi")
+    :javascript
+      google.load("jquery", "1.3.2");
+      google.load("jqueryui", "1.7.2");
+    = sprockets_include_tag
+    = stylesheet_link_tag 'screen'
+
+    %body{:class => [controller.controller_name,controller.action_name]*'-'}
+      #document
+
+        #header
+
+          %h1 MaNGOS
+
+        #navigation
+
+          %ul
+            = nav_link :accounts, accounts_path
+
+          #search
+            %form{:action => search_path, :method => 'GET'}
+              %input{:value => params[:q]}(type="text" name="q" placeholder="Search")
+
+        #content
+
+          #subheader
+
+            - if content_defined? :subheader
+              = yield(:subheader)
+            - else
+              %h2= controller.controller_name.titleize + ' &raquo; ' + controller.action_name.titleize
+
+          = render_flashes
+
+          = yield
+

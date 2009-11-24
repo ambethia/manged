@@ -1,0 +1,10 @@
+doc/app
+doc/api
+log/*.log
+tmp/**/*
+config/*.yml
+!config/sprockets.yml
+public/sprockets.js
+!config/sphinx.yml
+config/*.sphinx.conf
+db/sphinx

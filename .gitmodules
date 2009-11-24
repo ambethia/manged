@@ -1,0 +1,6 @@
+[submodule "vendor/plugins/make_resourceful"]
+	path = vendor/plugins/make_resourceful
+	url = git://github.com/hcatlin/make_resourceful.git
+[submodule "vendor/plugins/sprockets-rails"]
+	path = vendor/plugins/sprockets-rails
+	url = git://github.com/sstephenson/sprockets-rails.git

@@ -1,0 +1,252 @@
+@import compass/utilities/lists.sass
+@import compass/utilities/links.sass
+@import functions.sass
+
+!text_color       = #44484D
+!nav_bar_color    = #464646
+!bg_color         = #EBEBEB
+!link_color       = #30A4B1
+!hover_color      = #F7941D
+!border_color     = #B9B9B9
+!content_bg_color = #FFFFFF
+
+body
+  +sans-serif-font
+  font-size: 12px
+  background-color= !bg_color
+  color= !text_color
+  
+a
+  +unstyled-link
+  +link-colors(!link_color, white)
+
+  &:hover
+    background-color= !link_color - 50
+
+p
+  margin: 10px 0
+
+a.button, button
+  color= !link_color
+  background-color= !border_color+60
+  display: inline-block
+  font-weight: bold
+  font-size: 12px
+  line-height: 15px
+  text-decoration: none
+  background-repeat: no-repeat
+  background-position: 8px center
+  padding: 6px 10px
+  border= 1px "solid" !border_color
+  -moz-border-radius: 4px
+  -webkit-border-radius: 4px
+  border-radius: 4px
+
+  &.add
+    padding-left: 30px !important
+    background-image: url(../images/buttons/add.gif)
+  
+  &.delete
+    padding-left: 30px !important
+    background-image: url(../images/buttons/delete.gif)
+
+  &.alert
+    padding-left: 30px !important
+    background-image: url(../images/buttons/alert.gif)
+
+  &.info
+    padding-left: 30px !important
+    background-image: url(../images/buttons/info.gif)
+
+  &:hover
+    color= !link_color - 50
+    background-color= !border_color+45
+
+button
+  width: auto
+  overflow: visible
+  padding: 5px 10px 4px 7px
+
+  &[type]
+    padding: 5px 10px 5px 7px
+    line-height: 17px
+
+*:first-child+html button[type]
+  padding: 5px 10px 4px 7px
+
+
+.flash
+  border: 1px solid
+  margin: 10px 0px
+  padding: 10px 10px 10px 36px
+  background-repeat: no-repeat
+  background-position: 10px center
+  -moz-border-radius: 4px
+  -webkit-border-radius: 4px
+  border-radius: 4px
+
+.notice
+  color: #00529B
+  background-color: #BDE5F8
+  background-image: url('../images/statuses/notice.png')
+
+.success
+  color: #4F8A10
+  background-color: #DFF2BF
+  background-image: url('../images/statuses/success.png')
+
+.warning
+  color: #9F6000
+  background-color: #FEEFB3
+  background-image: url('../images/statuses/warning.png')
+
+.error
+  color: #AA000C
+  background-color: #FFBABA
+  background-image: url('../images/statuses/error.png')
+
+table
+  width: 100%
+  border-collapse: collapse
+  border= 1px "solid" !border_color
+  margin: 15px 0
+  
+  th, td
+    padding: 10px
+    border-bottom= 1px "solid" !border_color
+
+  th
+    background-color= !border_color+30
+    font-weight: bold
+    text-transform: uppercase
+    text-align: left
+
+  tr
+    
+    &.even
+      background-color= !border_color+60
+
+#document
+  width: 960px
+  position: relative
+  left: 50%
+  margin-left: -480px
+
+#header
+
+  h1
+    color= !text_color
+    font-weight: bold
+    font-size: 45px
+    line-height: 45px
+    text-transform: uppercase
+    margin: 15px 0
+
+#navigation
+  +clearfix
+  margin-bottom: 15px
+
+  background-color= !nav_bar_color
+
+  ul
+    float: left
+    +horizontal-list
+    font-size: 15px
+    line-height: 15px
+
+    li
+      margin: 0
+      padding: 0
+
+      a
+        color= !bg_color
+        display: block
+        padding: 15px
+        text-transform: uppercase
+        text-decoration: none
+
+        &:focus, &:hover
+          background-color= !hover_color
+
+      &.current
+        background-color= !link_color
+
+/* = Search Form
+  ------------------------------------------------------ */
+
+#search
+  float: right
+  margin: 10px
+
+  input
+    background:
+      image: url(../images/icons/search.png)
+      repeat: no-repeat
+      position: 4px center
+    border: 1px solid white
+    margin: 0
+    padding: 3px 3px 3px 24px
+    font-size: 14px
+
+
+#subheader
+  background-color= !content_bg_color
+  border-bottom= 1px "solid" !border_color
+  padding: 15px
+  margin: -15px -15px 15px -15px
+
+  h2
+    +serif-font
+    font-size: 18px
+    font-weight: bold
+    font-style: italic
+    margin: 0
+
+#content
+  +clearfix
+  background-color= !content_bg_color
+  border= 1px "solid" !border_color
+  padding: 15px
+  
+  .mod
+    text-align: right
+
+    form
+      display: inline
+
+  form
+
+    p
+      margin: 20px 0 
+
+    label
+      font-weight: bold
+      text-transform: uppercase
+      font-size: 13px
+
+    input[type=text], textarea, input.text
+      margin-top: 2px
+      border= 1px "solid" !border_color
+      padding: 10px
+      +serif-font
+      font-size: 15px
+      width: 500px
+
+      &.short
+        width: 100px
+
+    textarea
+      height: 100px
+
+    em
+      font-style: italic
+
+    li
+      list-style: none
+      margin: 5px 0
+
+      label
+        +serif-font
+        font-weight: normal
+        font-size: 15px
+        text-transform: none
