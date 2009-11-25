@@ -10,6 +10,8 @@
 !border_color     = #B9B9B9
 !content_bg_color = #FFFFFF
 
+@import forms.sass
+
 body
   +sans-serif-font
   font-size: 12px
@@ -26,7 +28,7 @@ a
 p
   margin: 10px 0
 
-a.button, button
+a.button, button, input[type=submit]
   color= !link_color
   background-color= !border_color+60
   display: inline-block
@@ -42,7 +44,7 @@ a.button, button
   -webkit-border-radius: 4px
   border-radius: 4px
 
-  &.add
+  &.create
     padding-left: 30px !important
     background-image: url(../images/buttons/add.gif)
   
@@ -213,40 +215,3 @@ table
 
     form
       display: inline
-
-  form
-
-    p
-      margin: 20px 0 
-
-    label
-      font-weight: bold
-      text-transform: uppercase
-      font-size: 13px
-
-    input[type=text], textarea, input.text
-      margin-top: 2px
-      border= 1px "solid" !border_color
-      padding: 10px
-      +serif-font
-      font-size: 15px
-      width: 500px
-
-      &.short
-        width: 100px
-
-    textarea
-      height: 100px
-
-    em
-      font-style: italic
-
-    li
-      list-style: none
-      margin: 5px 0
-
-      label
-        +serif-font
-        font-weight: normal
-        font-size: 15px
-        text-transform: none

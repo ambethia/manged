@@ -7,4 +7,5 @@ config/*.yml
 public/sprockets.js
 !config/sphinx.yml
 config/*.sphinx.conf
+public/stylesheets/screen.css
 db/sphinx

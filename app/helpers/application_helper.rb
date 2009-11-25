@@ -8,7 +8,7 @@ module ApplicationHelper
 
   # %li.current= link_to "Orders", "#"
   def nav_link(tab, link, label = nil)
-    content_tag :li, :class => @current_tab == tab ? "current" : nil do
+    content_tag :li, :class => @current_tab.to_s == tab.to_s ? "current" : nil do
       link_to label || tab.to_s.titleize, link
     end
   end

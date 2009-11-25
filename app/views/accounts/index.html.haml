@@ -1,0 +1,10 @@
+- table_for @accounts do |t|
+  - t.username { |a| link_to a.username, [:edit, a] }
+  - t.gm_level_name "Type"
+  - t.email
+  - t.last_login
+  - t.expansion_name
+
+.mod
+  = link_to 'New', new_object_path, :class => 'add button'
+

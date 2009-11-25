@@ -4,3 +4,6 @@
 [submodule "vendor/plugins/sprockets-rails"]
 	path = vendor/plugins/sprockets-rails
 	url = git://github.com/sstephenson/sprockets-rails.git
+[submodule "vendor/plugins/table_for"]
+	path = vendor/plugins/table_for
+	url = git://github.com/matthuhiggins/table_for.git

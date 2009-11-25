@@ -1,3 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
-  # map.root :controller => "welcome"
+  SprocketsApplication.routes(map)
+  map.resources 'accounts'
+  map.search '/search', :controller => 'search'
+  map.root :controller => 'accounts'
 end

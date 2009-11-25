@@ -7,4 +7,5 @@ Rails::Initializer.run do |config|
   config.gem 'haml'
   config.gem 'compass'
   config.gem 'sprockets'
+  config.gem 'formtastic'
 end
