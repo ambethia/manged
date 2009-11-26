@@ -36,10 +36,44 @@ class Item < ActiveRecord::Base
     "Ranged", "Back", "Two-Hand", "Bag", "Tabard", "Robe", "Main hand",
     "Off hand", "Holdable (Tome)", "Ammo", "Thrown", "Ranged right", "Quiver", "Relic"]
 
+  FLAGS = [
+    ["Soulbound",                       :soulbound],
+    ["Conjured",                        :conjured],
+    ["Lootable ",                       :lootable],
+    ["Wrapped",                         :wrapped],
+    ["Deprecated; item no longer used", :deprecated],
+    ["Totem",                           :totem],
+    ["Activatable with right-click",    :activatable],
+    ["",                                nil],
+    ["Wrapper",                         :wrapper],
+    ["Gifts",                           :gifts],
+    ["Party lootable",                  :party_loot],
+    ["",                                nil],
+    ["",                                nil],
+    ["Charter (Arena or Guild)",        :charter],
+    ["",                                nil],
+    ["PvP reward item",                 :pvp],
+    ["",                                nil],
+    ["",                                nil],
+    ["",                                nil],
+    ["Unique equipped",                 :unique_equip],
+    ["",                                nil],
+    ["",                                nil],
+    ["Throwable",                       :throwable],
+    ["Special Use",                     :special],
+    ["",                                nil],
+    ["",                                nil],
+    ["",                                nil],
+    ["Bind On Account",                 :bind_account],
+    ["",                                nil],
+    ["",                                nil],
+    ["Millable",                        :millable]]
+
   option_columns :quality, :inventory_type
 
   alias_attribute :quality,        :Quality
   alias_attribute :inventory_type, :InventoryType
+  alias_attribute :flags,          :Flags
 
   def klass=(klass)
     self[:class], self[:subclass] = klass.split '.'

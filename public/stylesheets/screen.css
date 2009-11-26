@@ -220,6 +220,10 @@ form .inputs .select select {
 form .inputs .numeric input {
   width: 15%; }
 /* line 39, ../../app/stylesheets/_forms.sass */
+form .inputs .check_boxes li label {
+  font-weight: normal;
+  text-transform: none; }
+/* line 45, ../../app/stylesheets/_forms.sass */
 form .inputs ol li {
   margin: 1em 0; }
 

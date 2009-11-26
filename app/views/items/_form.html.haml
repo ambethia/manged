@@ -5,7 +5,7 @@
     = select_tag "item[klass]", options_for_item_klass(@item.klass)
   = form.input :displayid, :label => 'Model (displayid)'
   = form.input :quality, :as => :select, :collection => Item.qualities
-  = form.input :Flags, :label => 'Flags'
+  = form.input :flags, :as => :check_boxes, :collection => Item::FLAGS.reject{|f|!f.last}, :label_method => :first, :value_method => :last
   = form.input :Faction, :label => 'Faction'
   = form.input :BuyCount, :label => 'Buy Count',   :hint => 'The size of the item stack when sold by vendors.'
   = form.input :BuyPrice, :label => 'Buy Price',   :hint => 'The price required to pay to buy this item from a vendor, in copper.'
