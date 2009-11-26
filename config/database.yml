@@ -1,21 +1,28 @@
-development: &login
+development:
+  adapter: mysql
+  database: manged
+  username: root
+  password:
+  host: localhost
+  
+mangos: &mangos
   adapter: mysql
   username: root
   password: mangos
   host: 192.168.1.155
 
 mangos:
-  <<: *login
+  <<: *mangos
   database: mangos
 
 realmd:
-  <<: *login
+  <<: *mangos
   database: realmd
 
 characters:
-  <<: *login
+  <<: *mangos
   database: characters
 
 scriptdev2:
-  <<: *login
+  <<: *mangos
   database: scriptdev2

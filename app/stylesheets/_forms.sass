@@ -1,6 +1,7 @@
 @import formtastic_base.sass
-!floated_label_text_align = "right"
-+float-form
+
+.formtastic
+  +stack-form
 
 form
 
@@ -9,39 +10,31 @@ form
     padding: 0
 
     label
-      
-      padding: 10px 0
-      font-size: 15px
       font-weight: bold
       text-transform: uppercase
 
-    input, textarea, button, select
-      margin-left: 10px
+  .inputs
 
-  .string, .text, .password
+    .string, .text, .password, .numeric
   
-    input, textarea
-      +serif-font
-      border= 1px "solid" !border_color
-      padding: 10px
-      font-size: 15px
+      input, textarea
+        width: 50%
+        +serif-font
+        border= 1px "solid" !border_color
+        padding: 5px
+        font-size: 15px
 
-  .select
+    .select
 
-    select
-      margin-top: 10px
-      margin-bottom: 10px
-      font-size: 15px
+      select
+        font-size: 15px
       
-  .boolean
-    padding-left: 20%
+    .numeric
     
-    label
-      text-align: left
-      padding-top: 0
-
       input
-        width: auto
-        height: 15px
-        margin-right: 10px
-      
+        width: 15%
+
+    ol
+  
+      li
+        margin: 1em 0
