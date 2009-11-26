@@ -4,38 +4,40 @@
     %meta(charset="utf-8")
     %title= controller.controller_name + ': ' + controller.action_name
     %script(src="http://www.google.com/jsapi")
+    %script(src="http://static.wowhead.com/widgets/power.js")
     :javascript
       google.load("jquery", "1.3.2");
       google.load("jqueryui", "1.7.2");
     = sprockets_include_tag
     = stylesheet_link_tag 'screen'
 
-    %body{:class => [controller.controller_name,controller.action_name]*'-'}
-      #document
+  %body{:class => [controller.controller_name,controller.action_name]*'-'}
+    #document
 
-        #header
+      #header
 
-          %h1 MaNGOS
+        %h1 MaNGOS
 
-        #navigation
+      #navigation
 
-          %ul
-            = nav_link :accounts, accounts_path
+        %ul
+          = nav_link :accounts, accounts_path
+          = nav_link :items,    items_path
 
-          #search
-            %form{:action => search_path, :method => 'GET'}
-              %input{:value => params[:q]}(type="text" name="q" placeholder="Search")
+        #search
+          %form{:action => search_path, :method => 'GET'}
+            %input{:value => params[:q]}(type="text" name="q" placeholder="Search")
 
-        #content
+      #content
 
-          #subheader
+        #subheader
 
-            - if content_defined? :subheader
-              = yield(:subheader)
-            - else
-              %h2= controller.controller_name.titleize + ' &raquo; ' + controller.action_name.titleize
+          - if content_defined? :subheader
+            = yield(:subheader)
+          - else
+            %h2= controller.controller_name.titleize + ' &raquo; ' + controller.action_name.titleize
 
-          = render_flashes
+        = render_flashes
 
-          = yield
+        = yield
 

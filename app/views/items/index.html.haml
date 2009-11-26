@@ -1,0 +1,10 @@
+- table_for @items do |t|
+  - t.name { |x| link_to x.name, [:edit, x] }
+  - t.entry("ID") { |x| link_to x.entry, "http://wowhead.com?item=#{x.entry}" }
+
+
+= will_paginate(@items)
+
+.mod
+  = link_to 'New', new_object_path, :class => 'add button'
+

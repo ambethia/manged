@@ -1,7 +1,7 @@
 - form.inputs do
   = form.input :username
   = form.input :password
-  = form.input :gmlevel, :label => "Type", :as => :select, :collection => Account.gm_levels, :include_blank => false                                                |
-  = form.input :email
+  = form.input :gmlevel, :label => "Type", :as => :select, :collection => Account.gmlevels
+  = form.input :email, :as => :string
+  = form.input :expansion, :as => :select, :collection => Account.expansions
   = form.input :locked, :as => :boolean
-  = form.input :expansion, :as => :select, :collection => Account.expansions, :include_blank => false

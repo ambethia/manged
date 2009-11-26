@@ -8,4 +8,5 @@ Rails::Initializer.run do |config|
   config.gem 'compass'
   config.gem 'sprockets'
   config.gem 'formtastic'
+  config.gem 'will_paginate'
 end

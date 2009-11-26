@@ -1,36 +1,254 @@
-/* line 3, ../../app/stylesheets/_forms.sass */
+/* line 141, ../../app/stylesheets/_formtastic_base.sass */
+ul, ol, legend, p {
+  margin: 0;
+  padding: 0; }
+
+/* line 144, ../../app/stylesheets/_formtastic_base.sass */
+li {
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-left: 0px;
+  padding-right: 0px; }
+
+/* line 150, ../../app/stylesheets/_formtastic_base.sass */
+fieldset {
+  display: block;
+  *display: inline-block; }
+  /* line 98, ../../app/stylesheets/_formtastic_base.sass */
+  fieldset:after {
+    content: " ";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden; }
+
+/* line 154, ../../app/stylesheets/_formtastic_base.sass */
+abbr, acronym {
+  border: 0;
+  font-variant: normal;
+  font-weight: normal; }
+
+/* line 159, ../../app/stylesheets/_formtastic_base.sass */
+ol, ul {
+  list-style: none; }
+
+/* line 162, ../../app/stylesheets/_formtastic_base.sass */
+label {
+  display: block;
+  *display: inline-block; }
+  /* line 98, ../../app/stylesheets/_formtastic_base.sass */
+  label:after {
+    content: " ";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden; }
+
+/* line 166, ../../app/stylesheets/_formtastic_base.sass */
+input, textarea {
+  vertical-align: middle; }
+
+/* line 170, ../../app/stylesheets/_formtastic_base.sass */
+.check_boxes input, .radio input {
+  margin: 0; }
+/* line 172, ../../app/stylesheets/_formtastic_base.sass */
+.check_boxes label, .radio label {
+  cursor: pointer; }
+
+/* line 175, ../../app/stylesheets/_formtastic_base.sass */
+.hidden {
+  display: none; }
+
+/* line 179, ../../app/stylesheets/_formtastic_base.sass */
+.date li, .time li, .datetime li {
+  float: left;
+  width: auto;
+  clear: none; }
+/* line 183, ../../app/stylesheets/_formtastic_base.sass */
+.date label, .time label, .datetime label {
+  display: none;
+  width: auto; }
+/* line 186, ../../app/stylesheets/_formtastic_base.sass */
+.date input, .time input, .datetime input {
+  display: inline;
+  margin: 0;
+  padding: 0; }
+
+/* line 191, ../../app/stylesheets/_formtastic_base.sass */
+.errors {
+  list-style: square; }
+  /* line 193, ../../app/stylesheets/_formtastic_base.sass */
+  .errors li {
+    padding: 0;
+    border: none;
+    display: list-item;
+    float: none;
+    clear: both; }
+
+/* line 199, ../../app/stylesheets/_formtastic_base.sass */
+.inputs {
+  z-index: 99; }
+
+/* line 202, ../../app/stylesheets/_formtastic_base.sass */
+.buttons li {
+  float: left; }
+
+/* line 205, ../../app/stylesheets/_formtastic_base.sass */
+li {
+  *display: inline-block;
+  display: block; }
+  /* line 98, ../../app/stylesheets/_formtastic_base.sass */
+  li:after {
+    content: " ";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden; }
+  /* line 208, ../../app/stylesheets/_formtastic_base.sass */
+  li fieldset {
+    border: none;
+    position: relative;
+    margin-top: 0px; }
+  /* line 212, ../../app/stylesheets/_formtastic_base.sass */
+  li legend {
+    display: block;
+    margin-bottom: 0; }
+  /* line 215, ../../app/stylesheets/_formtastic_base.sass */
+  li .label {
+    display: block;
+    clear: both;
+    background: transparent; }
+  /* line 220, ../../app/stylesheets/_formtastic_base.sass */
+  li ol {
+    float: left;
+    margin: 0; }
+    /* line 223, ../../app/stylesheets/_formtastic_base.sass */
+    li ol li {
+      padding: 0;
+      border: 0;
+      display: inline; }
+
+/* line 315, ../../app/stylesheets/_formtastic_base.sass */
+fieldset {
+  width: 100%; }
+
+/* line 317, ../../app/stylesheets/_formtastic_base.sass */
+label {
+  float: left;
+  width: 20%;
+  text-align: right;
+  padding-right: 0; }
+
+/* line 323, ../../app/stylesheets/_formtastic_base.sass */
+li ol {
+  padding: 0 10% 0 20%; }
+/* line 326, ../../app/stylesheets/_formtastic_base.sass */
+li fieldset legend, li fieldset legend .label {
+  display: block; }
+/* line 328, ../../app/stylesheets/_formtastic_base.sass */
+li fieldset legend {
+  width: 20%;
+  text-align: right;
+  display: inline;
+  float: left;
+  clear: none;
+  padding: 0;
+  width: 100%; }
+/* line 331, ../../app/stylesheets/_formtastic_base.sass */
+li fieldset .label {
+  position: absolute;
+  width: 20%;
+  top: 0px;
+  left: 0; }
+/* line 339, ../../app/stylesheets/_formtastic_base.sass */
+li fieldset label {
+  padding-left: 0; }
+/* line 341, ../../app/stylesheets/_formtastic_base.sass */
+li fieldset label, li fieldset input {
+  width: auto;
+  display: inline;
+  clear: none;
+  text-align: left; }
+/* line 346, ../../app/stylesheets/_formtastic_base.sass */
+li fieldset select {
+  padding: 0;
+  clear: both;
+  display: block; }
+
+/* line 350, ../../app/stylesheets/_formtastic_base.sass */
+.inline-hints, .inline-errors, .errors {
+  margin: 0 0 0 20%; }
+
+/* line 352, ../../app/stylesheets/_formtastic_base.sass */
+input, textarea {
+  width: 70%; }
+
+/* line 354, ../../app/stylesheets/_formtastic_base.sass */
+select {
+  width: auto; }
+
+/* line 360, ../../app/stylesheets/_formtastic_base.sass */
+.checkbox li, .radio li {
+  display: block;
+  clear: both; }
+/* line 363, ../../app/stylesheets/_formtastic_base.sass */
+.checkbox input, .radio input {
+  border: none; }
+
+/* line 365, ../../app/stylesheets/_formtastic_base.sass */
+.buttons {
+  padding-left: 20%;
+  width: 80%; }
+  /* line 368, ../../app/stylesheets/_formtastic_base.sass */
+  .buttons input {
+    width: auto; }
+  /* line 373, ../../app/stylesheets/_formtastic_base.sass */
+  .buttons li {
+    width: auto;
+    float: left;
+    display: inline; }
+
+/* line 384, ../../app/stylesheets/_formtastic_base.sass */
+#errorExplanation {
+  margin-left: 20%;
+  width: 70%; }
+
+/* line 7, ../../app/stylesheets/_forms.sass */
 form fieldset {
   border: none;
   padding: 0; }
-  /* line 7, ../../app/stylesheets/_forms.sass */
-  form fieldset ol {
-    padding: 0; }
-    /* line 10, ../../app/stylesheets/_forms.sass */
-    form fieldset ol li {
-      list-style: none;
-      margin-bottom: 1em; }
-      /* line 14, ../../app/stylesheets/_forms.sass */
-      form fieldset ol li label {
-        display: block;
-        font-weight: bold;
-        text-transform: uppercase;
-        font-size: 13px; }
-  /* line 20, ../../app/stylesheets/_forms.sass */
-  form fieldset input[type=text], form fieldset input[type=password],
-  form fieldset textarea, form fieldset input.text {
-    margin-top: 2px;
-    border: 1px solid #b9b9b9;
-    padding: 10px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+  /* line 11, ../../app/stylesheets/_forms.sass */
+  form fieldset label {
+    padding: 10px 0;
     font-size: 15px;
-    width: 500px; }
-    /* line 29, ../../app/stylesheets/_forms.sass */
-    form fieldset input[type=text].short, form fieldset input[type=password].short,
-    form fieldset textarea.short, form fieldset input.text.short {
-      width: 100px; }
-  /* line 32, ../../app/stylesheets/_forms.sass */
-  form fieldset textarea {
-    height: 100px; }
+    font-weight: bold;
+    text-transform: uppercase; }
+  /* line 18, ../../app/stylesheets/_forms.sass */
+  form fieldset input, form fieldset textarea, form fieldset button, form fieldset select {
+    margin-left: 10px; }
+/* line 23, ../../app/stylesheets/_forms.sass */
+form .string input, form .string textarea, form .text input, form .text textarea, form .password input, form .password textarea {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  border: 1px solid #b9b9b9;
+  padding: 10px;
+  font-size: 15px; }
+/* line 31, ../../app/stylesheets/_forms.sass */
+form .select select {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 15px; }
+/* line 36, ../../app/stylesheets/_forms.sass */
+form .boolean {
+  padding-left: 20%; }
+  /* line 39, ../../app/stylesheets/_forms.sass */
+  form .boolean label {
+    text-align: left;
+    padding-top: 0; }
+    /* line 43, ../../app/stylesheets/_forms.sass */
+    form .boolean label input {
+      width: auto;
+      height: 15px;
+      margin-right: 10px; }
 
 /* line 15, ../../app/stylesheets/_layout.sass */
 body {
@@ -180,13 +398,16 @@ table {
 
 /* line 147, ../../app/stylesheets/_layout.sass */
 #navigation {
-  overflow: hidden;
-  display: inline-block;
+  *display: inline-block;
   margin-bottom: 15px;
   background-color: #464646; }
-  /* line 5, ../../../../../../usr/local/lib/ruby/gems/1.8/gems/compass-0.8.17/frameworks/compass/stylesheets/compass/utilities/general/_hacks.sass */
-  #navigation {
-    display: block; }
+  /* line 98, ../../app/stylesheets/_formtastic_base.sass */
+  #navigation:after {
+    content: " ";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden; }
   /* line 153, ../../app/stylesheets/_layout.sass */
   #navigation ul {
     float: left;
@@ -194,13 +415,16 @@ table {
     padding: 0;
     border: 0;
     outline: 0;
-    overflow: hidden;
-    display: inline-block;
+    *display: inline-block;
     font-size: 15px;
     line-height: 15px; }
-    /* line 5, ../../../../../../usr/local/lib/ruby/gems/1.8/gems/compass-0.8.17/frameworks/compass/stylesheets/compass/utilities/general/_hacks.sass */
-    #navigation ul {
-      display: block; }
+    /* line 98, ../../app/stylesheets/_formtastic_base.sass */
+    #navigation ul:after {
+      content: " ";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden; }
     /* line 50, ../../../../../../usr/local/lib/ruby/gems/1.8/gems/compass-0.8.17/frameworks/compass/stylesheets/compass/utilities/lists/_horizontal_list.sass */
     #navigation ul li {
       list-style-type: none;
@@ -266,14 +490,17 @@ table {
 
 /* line 207, ../../app/stylesheets/_layout.sass */
 #content {
-  overflow: hidden;
-  display: inline-block;
+  *display: inline-block;
   background-color: white;
   border: 1px solid #b9b9b9;
   padding: 15px; }
-  /* line 5, ../../../../../../usr/local/lib/ruby/gems/1.8/gems/compass-0.8.17/frameworks/compass/stylesheets/compass/utilities/general/_hacks.sass */
-  #content {
-    display: block; }
+  /* line 98, ../../app/stylesheets/_formtastic_base.sass */
+  #content:after {
+    content: " ";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden; }
   /* line 213, ../../app/stylesheets/_layout.sass */
   #content .mod {
     text-align: right; }

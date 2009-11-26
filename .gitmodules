@@ -7,3 +7,6 @@
 [submodule "vendor/plugins/table_for"]
 	path = vendor/plugins/table_for
 	url = git://github.com/matthuhiggins/table_for.git
+[submodule "vendor/formtastic-sass"]
+	path = vendor/formtastic-sass
+	url = git://github.com/activestylus/formtastic-sass.git
