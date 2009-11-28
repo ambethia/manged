@@ -1,11 +1,11 @@
-development:
-  adapter: mysql
-  database: manged
-  username: root
-  password:
-  host: localhost
+# development:
+#   adapter: mysql
+#   database: manged
+#   username: root
+#   password:
+#   host: localhost
   
-mangos: &mangos
+development: &mangos
   adapter: mysql
   username: root
   password: mangos

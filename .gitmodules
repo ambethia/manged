@@ -10,3 +10,6 @@
 [submodule "vendor/formtastic-sass"]
 	path = vendor/formtastic-sass
 	url = git://github.com/activestylus/formtastic-sass.git
+[submodule "vendor/plugins/bitmask-attribute"]
+	path = vendor/plugins/bitmask-attribute
+	url = git://github.com/bruce/bitmask-attribute.git

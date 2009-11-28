@@ -4,6 +4,14 @@ class Item < ActiveRecord::Base
   set_table_name  :item_template
   set_primary_key :entry
 
+  before_save :autoinc_entry
+
+  def autoinc_entry
+    unless entry && entry > 0
+      self.entry = Item.last.entry + 1
+    end
+  end
+
   CLASSES = [
     "Consumable", "Container", "Weapon", "Gem", "Armor", "Reagent",
     "Projectile", "Trade Goods", "Generic (OBSOLETE)", "Recipe", "Money (OBSOLETE)",
@@ -69,11 +77,112 @@ class Item < ActiveRecord::Base
     ["",                                nil],
     ["Millable",                        :millable]]
 
-  option_columns :quality, :inventory_type
+  FACTIONS = ["None", "Horde", "Alliance"]
 
-  alias_attribute :quality,        :Quality
-  alias_attribute :inventory_type, :InventoryType
-  alias_attribute :flags,          :Flags
+  PLAYER_CLASSES = [
+    ["Warrior",      :warrior],
+    ["Paladin",      :paladin],
+    ["Hunter",       :hunter],
+    ["Rogue",        :rouge],
+    ["Priest",       :priest],
+    ["Death Knight", :death_knight],
+    ["Shaman",       :shaman],
+    ["Mage",         :mage],
+    ["Warlock",      :warlock],
+    ["",             :null],
+    ["Druid",        :druid]]
+
+  PLAYER_RACES = [
+    ["Human",     :human],
+    ["Orc",       :orc],
+    ["Dwarf",     :dwarf],
+    ["Night Elf", :night_elf],
+    ["Undead",    :undead],
+    ["Tauren",    :tauren],
+    ["Gnome",     :gnome],
+    ["Troll",     :troll],
+    ["Blood Elf", :blood_elf],
+    ["Draenei",   :draenei]]
+
+  REQUIRED_SKILLS = {
+    ''               => 0,
+    'First Aid'      => 129,
+    'Blacksmithing'  => 164,
+    'Leatherworking' => 165,
+    'Alchemy'        => 171,
+    'Herbalism'      => 182,
+    'Cooking'        => 185,
+    'Mining'         => 186,
+    'Tailoring'      => 197,
+    'Engineering'    => 202,
+    'Enchanting'     => 333,
+    'Fishing'        => 356,
+    'Jewelcrafting'  => 755,
+    'Riding'         => 762,
+    'Inscription'    => 773}
+
+  REPUTATION_RANKS = ["", "Hated", "Hostile", "Unfriendly", "Neutral", "Friendly", "Honored", "Revered", "Exalted" ]
+
+  STATS = {
+    "Mana"                     => 0,
+    "Health"                   => 1,
+    "Agility"                  => 3,
+    "Strength"                 => 4,
+    "Intellect"                => 5,
+    "Spirit"                   => 6,
+    "Stamina"                  => 7,
+    "Defense Skill Rating"     => 12,
+    "Dodge Rating"             => 13,
+    "Parry Rating"             => 14,
+    "Block Rating"             => 15,
+    "Hit Melee Rating"         => 16,
+    "Hit Ranged Rating"        => 17,
+    "Hit Spell Rating"         => 18,
+    "Crit Melee Rating"        => 19,
+    "Crit Ranged Rating"       => 20,
+    "Crit Spell Rating"        => 21,
+    "Hit Taken Melee Rating"   => 22,
+    "Hit Taken Ranged Rating"  => 23,
+    "Hit Taken Spell Rating"   => 24,
+    "Crit Taken Melee Rating"  => 25,
+    "Crit Taken Ranged Rating" => 26,
+    "Crit Taken Spell Rating"  => 27,
+    "Haste Melee Rating"       => 28,
+    "Haste Ranged Rating"      => 29,
+    "Haste Spell Rating"       => 30,
+    "Hit Rating"               => 31,
+    "Crit Rating"              => 32,
+    "Hit Taken Rating"         => 33,
+    "Crit Taken Rating"        => 34,
+    "Resilience Rating"        => 35,
+    "Haste Rating"             => 36,
+    "Expertise Rating"         => 37,
+    "Attack Power"             => 38,
+    "Ranged Attack Power"      => 39,
+    "Feral Attack Powe"        => 40,
+    "Spell Healing Done"       => 41,
+    "Spell Damage Done"        => 42,
+    "Mana Regeneration"        => 43,
+    "Armor Penetration Rating" => 44,
+    "Spell Power"              => 45,
+    "Health Regen"             => 46,
+    "Spell Penetration"        => 47,
+    "Block Value"              => 48}
+
+  # For simple mapping of options for select helpers
+  option_columns :quality, :inventory_type, :factions, :reputation_ranks
+
+  bitmask :Flags,          :as => FLAGS.map(&:last)
+  bitmask :AllowableClass, :as => PLAYER_CLASSES.map(&:last)
+  bitmask :AllowableRace,  :as => PLAYER_RACES.map(&:last)
+
+  def special_bitmask_columns_on_write
+    # DB expects the value to be -1 for "all"
+    self[:AllowableClass] = -1 if self[:AllowableClass] == 0
+    self[:AllowableRace]  = -1 if self[:AllowableRace]  == 0
+  end
+
+  before_save :special_bitmask_columns_on_write
 
   def klass=(klass)
     self[:class], self[:subclass] = klass.split '.'
@@ -88,4 +197,5 @@ class Item < ActiveRecord::Base
     return true if method_name == 'class'
     super
   end
+
 end
