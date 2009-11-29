@@ -1,3 +1,6 @@
+.mod
+  = link_to "Copy", new_item_path(:copy => @item.entry), :class => "button"
+
 - semantic_form_for @item do |form|
   = render :partial => 'form', :locals => {:form => form}
   = form.buttons

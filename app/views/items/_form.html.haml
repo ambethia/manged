@@ -1,30 +1,13 @@
 - form.inputs "General", :class => 'collapsible' do
   = form.input :name
+  = form.input :entry, :label => 'Model (displayid)'
   %li#item_klass_input.select.optional
     %label(for="item_klass") Item Class
     = select_tag "item[klass]", options_for_item_klass(@item.klass)
   = form.input :displayid, :label => 'Model (displayid)'
   = form.input :Quality, :as => :select, :collection => Item.qualities
   = form.input :Flags, :as => :check_boxes, :collection => Item::FLAGS.reject{|f|!f.last}, :label_method => :first, :value_method => :last
-  = form.input :Faction, :label => 'Faction', :as => :select, :collection => Item.factions
-  = form.input :BuyCount, :label => 'Buy Count',   :hint => 'The size of the item stack when sold by vendors.'
-  = form.input :BuyPrice, :label => 'Buy Price',   :hint => 'The price required to pay to buy this item from a vendor, in copper.'
-  = form.input :SellPrice, :label => 'Sell Price', :hint => 'The price that the vendor will pay you for the item when you sell it and if it is possible to be sold, in copper. Put in 0 if the item cannot be sold to a vendor.'
   = form.input :InventoryType, :label => 'Inventory Type', :as => :select, :collection => Item.inventory_types, :hint => 'In what slot the item can be equipped.'
-  = form.input :AllowableClass, :label => 'Allowable Classes', :as => :check_boxes, :collection => Item::PLAYER_CLASSES.reject{|f|f.last == :null}, :hint => 'None checked for no restriction.'
-  = form.input :AllowableRace,  :label => 'Allowable Races',   :as => :check_boxes, :collection => Item::PLAYER_RACES,   :hint => 'None checked for no restriction.'
-  = form.input :ItemLevel, :label => 'Item Level'
-  = form.input :RequiredLevel, :label => 'Required Level'
-  = form.input :RequiredSkill, :label => 'Required Skill', :as => :select, :collection => Item::REQUIRED_SKILLS.sort, :hint => "Only the most common options are included here. Excluded a handful of skills used only by 1 or 2 items and over a hundred others not used by any. See SkillLine.dbc"
-  = form.input :RequiredSkillRank, :label => 'Required Skill Rank'
-  = form.input :requiredspell, :label => 'Required Spell', :hint => "ID of a spell require to be known before using the item. Usually a crafting specialization, ie: Dragonscale Leatherworking or Gnomish Engineering."
-  / = form.input :requiredhonorrank, :hint => "Seems to be deprecated, no items currently use this."
-  / = form.input :RequiredCityRank, :hint => "Seems to be deprecated, no items currently use this."
-  = form.input :RequiredReputationFaction, :label => 'Required Reputation Faction', :as => :select, :collection => FACTIONS.sort
-  = form.input :RequiredReputationRank, :label => 'Required Reputation Rank', :as => :select, :collection => Item.reputation_ranks
-  = form.input :maxcount, :label => 'Max Count', :hint => "Maximum number of copies of this item a player can have. Use 0 for infinite."
-  = form.input :stackable, :label => 'Stackable', :hint => "The number of copies of this item that can be stacked in the same slot."
-  = form.input :ContainerSlots, :label => 'Container Slots', :hint => "If the item is a bag, this field controls the number of slots the bag has."
 - form.inputs "Stats", :class => 'startClosed' do
   = form.input :StatsCount, :label => 'Stats Count', :as => :select, :collection => (0..10), :hint => "The number of stats used for this item. Only the first n stats are used."
   = form.input :stat_type1, :label => 'Stat Type 1', :as => :select, :collection => Item::STATS.sort
@@ -111,6 +94,20 @@
   = form.input :socketBonus, :label => 'Socketbonus'
   = form.input :GemProperties, :label => 'Gemproperties'
 - form.inputs "Misc", :class => 'startClosed' do
+  = form.input :AllowableClass, :label => 'Allowable Classes', :as => :check_boxes, :collection => Item::PLAYER_CLASSES.reject{|f|f.last == :null}, :hint => 'None checked for no restriction.'
+  = form.input :AllowableRace,  :label => 'Allowable Races',   :as => :check_boxes, :collection => Item::PLAYER_RACES,   :hint => 'None checked for no restriction.'
+  = form.input :ItemLevel, :label => 'Item Level'
+  = form.input :RequiredLevel, :label => 'Required Level'
+  = form.input :RequiredSkill, :label => 'Required Skill', :as => :select, :collection => Item::REQUIRED_SKILLS.sort, :hint => "Only the most common options are included here. Excluded a handful of skills used only by 1 or 2 items and over a hundred others not used by any. See SkillLine.dbc"
+  = form.input :RequiredSkillRank, :label => 'Required Skill Rank'
+  = form.input :requiredspell, :label => 'Required Spell', :hint => "ID of a spell require to be known before using the item. Usually a crafting specialization, ie: Dragonscale Leatherworking or Gnomish Engineering."
+  / = form.input :requiredhonorrank, :hint => "Seems to be deprecated, no items currently use this."
+  / = form.input :RequiredCityRank, :hint => "Seems to be deprecated, no items currently use this."
+  = form.input :RequiredReputationFaction, :label => 'Required Reputation Faction', :as => :select, :collection => FACTIONS.sort
+  = form.input :RequiredReputationRank, :label => 'Required Reputation Rank', :as => :select, :collection => Item.reputation_ranks
+  = form.input :maxcount, :label => 'Max Count', :hint => "Maximum number of copies of this item a player can have. Use 0 for infinite."
+  = form.input :stackable, :label => 'Stackable', :hint => "The number of copies of this item that can be stacked in the same slot."
+  = form.input :ContainerSlots, :label => 'Container Slots', :hint => "If the item is a bag, this field controls the number of slots the bag has."
   = form.input :bonding, :label => 'Bonding'
   = form.input :description, :label => 'Description'
   = form.input :PageText, :label => 'Pagetext'
@@ -139,3 +136,7 @@
   = form.input :FoodType, :label => 'Foodtype'
   = form.input :minMoneyLoot, :label => 'Minmoneyloot'
   = form.input :maxMoneyLoot, :label => 'Maxmoneyloot'
+  = form.input :Faction, :label => 'Faction', :as => :select, :collection => Item.factions
+  = form.input :BuyCount, :label => 'Buy Count',   :hint => 'The size of the item stack when sold by vendors.'
+  = form.input :BuyPrice, :label => 'Buy Price',   :hint => 'The price required to pay to buy this item from a vendor, in copper.'
+  = form.input :SellPrice, :label => 'Sell Price', :hint => 'The price that the vendor will pay you for the item when you sell it and if it is possible to be sold, in copper. Put in 0 if the item cannot be sold to a vendor.'

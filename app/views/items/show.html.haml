@@ -1,3 +1,5 @@
 %h2= @item.name
 
-%p= link_to "Edit", [:edit, @item]
+.mod
+  = link_to "Copy", new_item_path(:copy => @item.entry), :class => "button"
+  = link_to "Edit", [:edit, @item], :class => "button"
