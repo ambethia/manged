@@ -1,6 +1,7 @@
 doc/app
 doc/api
 log/*.log
+log/*.pid
 tmp/**/*
 config/*.yml
 !config/sprockets.yml

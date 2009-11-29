@@ -1,0 +1,12 @@
+%table
+  %tr
+    %th Name
+    %th Summary
+    %th ID
+  = render :partial => "result", :collection => @results
+
+- content_for :subheader do
+  - if params[:q].blank?
+    %h2 Search
+  - else
+    %h2= "Results for &ldquo;#{link_to h(params[:q]), search_path(:q => params[:q])}&rdquo;"

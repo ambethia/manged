@@ -4,12 +4,28 @@ class Item < ActiveRecord::Base
   set_table_name  :item_template
   set_primary_key :entry
 
-  before_save :autoinc_entry
+  before_save :auto_increment_entry
 
-  def autoinc_entry
+  def auto_increment_entry
     unless entry && entry > 0
       self.entry = Item.last.entry + 1
     end
+  end
+
+  define_index do
+    indexes name, :sortable => true
+    indexes entry, :sortable => true
+    indexes displayid, :sortable => true
+    indexes description
+  end
+
+  # Used in search results
+  def summary
+    summary = '%s: %s (%s)' % [
+      self.class.name,
+      CLASSES[self[:class]],
+      SUBCLASSES[self[:class]][subclass]
+    ]
   end
 
   CLASSES = [

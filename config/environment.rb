@@ -9,4 +9,6 @@ Rails::Initializer.run do |config|
   config.gem 'sprockets'
   config.gem 'formtastic'
   config.gem 'will_paginate'
+  config.gem 'thinking-sphinx',
+             :lib => 'thinking_sphinx/0.9.8'
 end

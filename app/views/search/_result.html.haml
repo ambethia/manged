@@ -1,0 +1,4 @@
+%tr{:class => cycle('even', 'odd')}
+  %td= link_to result.name, result
+  %td= result.summary
+  %td= link_to result.id, [:edit, result]
