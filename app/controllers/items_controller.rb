@@ -7,7 +7,7 @@ class ItemsController < ApplicationController
     if params[:copy] && copy = Item.find_by_entry(params[:copy])
       @current_object = copy.clone
     else
-      @current_object = Item.new
+      @current_object = Item.new(params[:item])
     end
   end
 

@@ -1,6 +1,5 @@
 - form.inputs "General", :class => 'collapsible' do
   = form.input :name
-  = form.input :entry, :label => 'Model (displayid)'
   %li#item_klass_input.select.optional
     %label(for="item_klass") Item Class
     = select_tag "item[klass]", options_for_item_klass(@item.klass)
