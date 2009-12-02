@@ -1,1 +1,39 @@
-%h2 TODO
+%table
+  %tr
+    %th Type
+    %td= @account.gm_level_name
+  %tr
+    %th Email
+    %td= mail_to @account.email
+  %tr
+    %th Expansion
+    %td= @account.expansion_name
+  %tr
+    %th Locked?
+    %td= @account.locked == 1 ? "Yes" : "No"
+  %tr
+    %th Join Date
+    %td= @account.joindate.try :to_s, :long_ordinal
+  %tr
+    %th Last Login
+    %td= @account.last_login.try :to_s, :long_ordinal
+  %tr
+    %th Last IP
+    %td= @account.last_ip
+  %tr
+    %th Failed Logins
+    %td= @account.failed_logins
+
+%h3 Characters
+
+= render :partial => 'characters/table', :locals => { :characters => @account.characters }
+
+.mod
+
+  = link_to "Delete", @account, :class => 'button delete', :confirm => "Are you sure? This can't be undone.", :method => :delete
+  = link_to "Edit", [:edit, @account], :class => 'button'
+
+- content_for :subheader do
+  %h2= @account.username
+  
+  

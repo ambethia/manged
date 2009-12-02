@@ -1,5 +1,5 @@
 - table_for @accounts do |t|
-  - t.username { |a| link_to a.username, [:edit, a] }
+  - t.username { |a| link_to a.username, a }
   - t.gm_level_name "Type"
   - t.email
   - t.last_login

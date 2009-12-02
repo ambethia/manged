@@ -1,11 +1,6 @@
 %h3 Online
 
-- table_for @online do |t|
-  - t.name
-  - t.level
-  - t.race
-  - t.klass "Class"
-  - t.account { |c| link_to c.account.username, c.account }
+= render :partial => 'characters/table', :locals => { :characters => @online}
 
 - content_for :subheader do
   %h2
