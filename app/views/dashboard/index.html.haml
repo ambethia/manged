@@ -1,0 +1,13 @@
+%h3 Online
+
+- table_for @online do |t|
+  - t.name
+  - t.level
+  - t.race
+  - t.klass "Class"
+  - t.account { |c| link_to c.account.username, c.account }
+
+- content_for :subheader do
+  %h2
+    = @realm.name
+    = '(%s up)'  % time_ago_in_words(@realm.uptime.start_time)

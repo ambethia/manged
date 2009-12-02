@@ -4,6 +4,8 @@ class Account < ActiveRecord::Base
   establish_connection :realmd
   set_table_name :account
 
+  has_many :characters, :foreign_key => 'account'
+
   EXPANSIONS = ['Classic', 'Burning Crusade', 'Wrath of the Lich King']
   GM_LEVELS   = ['Player', 'Moderator', 'Game Master', 'Administrator']
 
